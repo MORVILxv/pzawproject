@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { URL } from "node:url";
 
 const index_html = readFileSync("static/index.html");
+const favicon_ico = readFileSync("public/favicon.ico");
 
 const pathConfigs = [
     {
@@ -19,6 +20,14 @@ const pathConfigs = [
         handler: (req, res) => {
         res.writeHead(200, { "Content-Type": "text/plain" });
         res.end("hello world!\n");
+        },
+    },
+        {
+        path: "/favicon.ico",
+        allowed_methods: ["GET"],
+        handler: (req, res) => {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.end(favicon_ico);
         },
     },
 ];
