@@ -26,7 +26,7 @@ const pathConfigs = [
 
 
 
-// Create a HTTP server
+// Create a HTTP serve
 const server = createServer((req, res) => {
     const request_url = new URL(`http://${host}${req.url}`);
     const path = request_url.pathname;
