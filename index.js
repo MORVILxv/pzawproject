@@ -4,7 +4,6 @@ import { URL } from "node:url";
 
 const index_html = readFileSync("static/index.html");
 const favicon_ico = readFileSync("public/favicon.ico");
-const wojak_png = readFileSync("static/wojak.png");
 
 const pathConfigs = [
     {
