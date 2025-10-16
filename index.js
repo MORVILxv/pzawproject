@@ -10,24 +10,24 @@ const pathConfigs = [
         path: "/",
         allowed_methods: ["GET"],
         handler: (req, res) => {
-        res.writeHead(200, { "Content-Type": "text/html" });
-        res.end(index_html);
+            res.writeHead(200, { "Content-Type": "text/html" });
+            res.end(index_html);
         },
     },
     {
         path: "/hello",
         allowed_methods: ["GET"],
         handler: (req, res) => {
-        res.writeHead(200, { "Content-Type": "text/plain" });
-        res.end("hello world!\n");
+            res.writeHead(200, { "Content-Type": "text/plain" });
+            res.end("hello world!\n");
         },
     },
         {
         path: "/favicon.ico",
         allowed_methods: ["GET"],
         handler: (req, res) => {
-        res.writeHead(200, { "Content-Type": "image/x-icon" });
-        res.end(favicon_ico);
+            res.writeHead(200, { "Content-Type": "image/x-icon" });
+            res.end(favicon_ico);
         },
     },
 ];
@@ -43,13 +43,14 @@ const server = createServer((req, res) => {
 
     for (let config of pathConfigs) {
         if (path === config.path) {
-        if (config.allowed_methods.includes(req.method)) {
-            config.handler(req, res);
-        } else {
+            if (config.allowed_methods.includes(req.method)) {
+                config.handler(req, res);
+            }   
+            else {
             res.writeHead(405, { "Content-Type": "text/plain" });
             res.end("Method not allowed\n");        
-        }
-        break;
+            }
+            break;
         }
     }
 
