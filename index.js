@@ -26,7 +26,7 @@ const pathConfigs = [
         path: "/favicon.ico",
         allowed_methods: ["GET"],
         handler: (req, res) => {
-        res.writeHead(200, { "Content-Type": "text/html" });
+        res.writeHead(200, { "Content-Type": "image/x-icon" });
         res.end(favicon_ico);
         },
     },
@@ -35,7 +35,7 @@ const pathConfigs = [
 
 
 
-// Create a HTTP serve
+// Create a HTTP server
 const server = createServer((req, res) => {
     const request_url = new URL(`http://${host}${req.url}`);
     const path = request_url.pathname;
